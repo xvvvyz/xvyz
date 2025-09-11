@@ -1,0 +1,58 @@
+import { Hono } from 'hono';
+import { jsx, Fragment } from 'hono/jsx';
+
+type Bindings = { ASSETS: Fetcher };
+
+const app = new Hono<{ Bindings: Bindings }>();
+
+app.get('/', (c) =>
+  c.html(
+    <html>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>xvyz</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400&display=swap"
+          rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `tailwind.config = { theme: { extend: { fontFamily: { sans: ["Public Sans", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji"] } } } }`,
+          }}
+        />
+      </head>
+      <body class="min-h-dvh w-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 grid place-items-center p-8 m-0 font-sans">
+        <main>
+          <h1>
+            <svg
+              aria-label="xvyz"
+              class="h-10 text-neutral-900 dark:text-neutral-200"
+              fill="none"
+              role="img"
+              viewBox="0 0 327 99"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="m-.27 75 28.908-39.42L2.358-.482h29.2L43.676 15.87 55.648-.482h29.2L58.276 35.58 87.184 75h-29.2L43.53 54.998 28.93 75H-.27Zm118.169 0L88.553-.482h25.258l13.286 38.544L139.799-.482h25.769L136.149 75h-18.25Zm75.617 24.09c-5.84 0-10.049-.535-12.629-1.606l-3.796-1.606V77.92l7.227.438c3.699.292 6.595.17 8.687-.365 2.142-.487 3.699-1.168 4.672-2.044.974-.827 1.606-1.63 1.898-2.409.292-.779.463-1.265.511-1.46l.292-1.46L171.105-.482h27.886l14.308 41.026L228.118-.482h27.813L226.439 70.62c-3.26 7.933-6.594 13.943-10.001 18.031-3.406 4.088-7.008 6.838-10.804 8.249-3.747 1.46-7.786 2.19-12.118 2.19ZM260.146 75V59.962l32.412-41.026h-30.441V-.482h65.116v15.038l-32.485 41.026h32.631V75h-67.233Z"
+              />
+            </svg>
+          </h1>
+        </main>
+      </body>
+    </html>
+  )
+);
+
+app.notFound((c) => c.env.ASSETS.fetch(c.req.raw));
+
+export default app;

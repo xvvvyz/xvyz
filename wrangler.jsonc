@@ -1,17 +1,17 @@
 {
   "compatibility_date": "2025-05-25",
   "name": "xvyz",
-  "main": "worker.ts",
+  "main": "worker.tsx",
   "preview_urls": false,
   "workers_dev": false,
   "assets": {
     "binding": "ASSETS",
-    "directory": "public"
+    "directory": "public",
   },
   "routes": [
     {
       "pattern": "xvyz.co",
-      "custom_domain": true
-    }
-  ]
+      "custom_domain": true,
+    },
+  ],
 }
