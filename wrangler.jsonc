@@ -1,7 +1,7 @@
 {
   "compatibility_date": "2025-05-25",
   "name": "xvyz",
-  "main": "worker.tsx",
+  "main": "index.tsx",
   "preview_urls": false,
   "workers_dev": false,
   "assets": {
