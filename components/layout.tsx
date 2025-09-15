@@ -24,7 +24,7 @@ export const Layout = ({
           }}
         />
       </head>
-      <body class="m-0 flex min-h-dvh w-screen items-center justify-center bg-neutral-50 font-sans text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
+      <body class="m-0 flex min-h-dvh w-screen items-center justify-center bg-white font-sans text-black dark:bg-black dark:text-white">
         {children}
       </body>
     </html>
