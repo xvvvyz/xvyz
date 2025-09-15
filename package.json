@@ -5,6 +5,7 @@
   "scripts": {
     "build": "vite build --minify && bun build:css",
     "build:css": "tailwindcss -i ./tailwind.css -o ./dist/client/tailwind.css --minify",
+    "deploy": "wrangler deploy",
     "dev": "vite --host",
     "format": "prettier --write .",
     "types": "wrangler types"
