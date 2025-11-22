@@ -5,7 +5,7 @@ export const Index = () => (
     <h1>
       <svg
         aria-label="xvyz"
-        class="h-10"
+        class="h-6"
         fill="none"
         role="img"
         viewBox="0 0 327 99"
